@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import Section from './ui/Section';
 import { DEV_NAME, DEV_TITLE, BIO, SOCIAL_LINKS } from '../constants';
+import LiquidEther from './LiquidEther';
 
 const AbstractIllustration = () => {
   return (
@@ -50,8 +51,29 @@ const AbstractIllustration = () => {
 
 const Hero: React.FC = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 sm:px-12 max-w-7xl mx-auto pt-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+    <section className="min-h-screen flex items-center justify-center relative">
+      {/* Background LiquidEther - Full Width */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
+        <LiquidEther
+          mouseForce={20}
+          cursorSize={100}
+          isViscous={false}
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
+
+      {/* Content Container with padding */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full relative z-10 px-6 sm:px-12 max-w-7xl mx-auto pt-20">
         
         {/* Left Side: Content */}
         <div className="flex flex-col justify-center order-2 lg:order-1">
