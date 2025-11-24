@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
               <div className="p-3 border border-neutral-800 rounded-full group-hover:bg-white group-hover:text-black transition-all">
                 <Mail size={20} />
               </div>
-              hello@eneskutay.com
+              enes@srreal.co
             </a>
             
             <div className="flex gap-4 pt-4">
@@ -128,10 +128,10 @@ const Contact: React.FC = () => {
 
       <div className="mt-24 pt-8 border-t border-neutral-900 flex flex-col sm:flex-row justify-between items-center text-neutral-500 text-sm gap-4">
         <div>
-          © {new Date().getFullYear()} Enes Kutay Yarkan. All rights reserved.
+          © {new Date().getFullYear()} Larusajs. No copyright infringement intended.
         </div>
         <div className="flex items-center gap-2">
-            Built with React & Gemini
+            Built your dreams with Larusajs!
         </div>
       </div>
     </section>

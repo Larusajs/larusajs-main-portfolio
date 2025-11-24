@@ -2,111 +2,132 @@
 import { Project, Experience } from './types';
 
 export const DEV_NAME = "Enes Kutay Yarkan";
-export const DEV_TITLE = "Software Developer";
+export const DEV_TITLE = "AI & Backend Developer";
 
-export const BIO = `I build accessible, pixel-perfect, and performant web experiences. 
-With a strong foundation in modern React and a keen eye for design, I bridge the gap between 
-engineering and aesthetics.`;
+export const BIO = `AI & Backend Developer experienced in building automation-focused systems using Python, JavaScript, Go. Founder of multiple AI-driven products, with a track record of delivering efficient, scalable solutions for companies across various sectors.`;
 
 export const SKILLS = [
-  "React", "TypeScript", "Next.js", "Tailwind CSS", 
-  "Node.js", "GraphQL", "AWS", "Figma", "Gemini API"
+  "Python", "JavaScript", "TypeScript", "Go", "SQL", "Bash",
+  "Node.js", "Next.js", "FastAPI", "Express.js",
+  "PostgreSQL", "MongoDB", "Redis", "Supabase", "Firebase",
+  "Qdrant", "FAISS", "Docker", "Kubernetes",
+  "AWS", "Google Cloud", "Vercel",
+  "TailwindCSS", "React", "Vite",
+  "WebSockets", "REST APIs", "JWT", "LLMs"
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: "Neon Nexus",
-    description: "A cyberpunk-themed dashboard for visualizing real-time crypto market data using WebSocket and D3.js.",
-    tags: ["React", "D3.js", "WebSocket", "Tailwind"],
+    title: "AI HR Data Validation System",
+    description: "AI-powered HR data validation and cleaning system for Rönesans Holding using Python, FastAPI and PostgreSQL, with RAG knowledge system for company-wide access.",
+    tags: ["Python", "FastAPI", "PostgreSQL", "RAG", "AI"],
     link: "#",
     github: "#",
-    image: "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2532&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2670&auto=format&fit=crop"
   },
   {
     id: '2',
-    title: "Gemini Chat",
-    description: "An AI-powered conversational interface leveraging Google's Gemini API for multimodal interactions.",
-    tags: ["TypeScript", "Gemini API", "Vite"],
+    title: "E-commerce Analytics AI Pipeline",
+    description: "Real-time AI-powered analytics pipeline that processes customer data, identifies trending products, detects gaps and generates recommendations to increase conversion.",
+    tags: ["Python", "AI", "Analytics", "Real-time"],
+    link: "#",
+    github: "#",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+  },
+  {
+    id: '3',
+    title: "AI Legal Chatbot System",
+    description: "AI-powered legal chatbots using vector databases (Qdrant, FAISS) for semantic search, improving document retrieval speed and reducing manual legal review time.",
+    tags: ["Python", "FastAPI", "Qdrant", "FAISS", "AI"],
     link: "#",
     github: "#",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2832&auto=format&fit=crop"
   },
   {
-    id: '3',
-    title: "Minimalist E-comm",
-    description: "A headless e-commerce storefront focusing on speed, accessibility, and clean monochrome design.",
-    tags: ["Next.js", "Stripe", "Framer Motion"],
+    id: '4',
+    title: "NFT Creation Platform",
+    description: "Interactive NFT creation platform with Web3 wallet connectivity, real-time fractal art generation, and Discord automation for NFT drops and community management.",
+    tags: ["JavaScript", "Web3", "NFT", "Discord", "Node.js"],
     link: "#",
     github: "#",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2532&auto=format&fit=crop"
+  },
+  {
+    id: '5',
+    title: "Cinematic AI Platform",
+    description: "AI-supported production workflows for TV/film operations, accelerating content development and strengthening communication between creative teams and AI engineering.",
+    tags: ["Python", "AI", "Video Generation", "Production"],
+    link: "#",
+    github: "#",
+    image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2670&auto=format&fit=crop"
   }
 ];
 
 export const EXPERIENCE: Experience[] = [
   {
     id: '1',
-    role: "Lead Software Engineer",
-    company: "Apex Systems",
-    period: "2022 - Present",
-    description: "Spearheaded the migration of a legacy monolith to a micro-frontend architecture using Next.js and Module Federation. Reduced build times by 60% and improved team velocity. Mentored 4 junior developers and established code quality standards."
+    role: "Software Developer",
+    company: "Hagia Labs",
+    period: "Jan 2024 - Present",
+    description: "Developed AI-powered HR data validation systems for Rönesans Holding using Python, FastAPI and PostgreSQL. Built e-commerce analytics pipelines with real-time AI recommendations. Centralized operational data into unified databases and designed AI-supported production workflows for TV/film operations. Developed AI chatbots for enterprise businesses, improving customer satisfaction and reducing support response time."
   },
   {
     id: '2',
-    role: "Senior Frontend Developer",
-    company: "TechFlow Solutions",
-    period: "2020 - 2022",
-    description: "Architected a proprietary design system used across 5 distinct products. Implemented automated visual regression testing, ensuring 99.9% UI consistency across the platform suite."
+    role: "Software Developer",
+    company: "Shortimize",
+    period: "Jul 2025 - Sep 2025",
+    description: "Accelerated dashboard loading times by integrating Redis caching and improving data-fetch strategies. Collaborated with UX designer to refine UI/UX components. Resolved critical bugs across authentication, organization management and data-fetching layers, increasing system stability."
   },
   {
     id: '3',
-    role: "UI/UX Engineer",
-    company: "PixelCrafters",
-    period: "2018 - 2020",
-    description: "Collaborated closely with design teams to build award-winning interactive marketing campaigns for Fortune 500 clients using WebGL and Three.js. Optimized 3D assets for mobile performance."
+    role: "Junior Software Engineer",
+    company: "Bronix Engineering",
+    period: "Apr 2023 - Jan 2024",
+    description: "Introduced vector database technologies (Qdrant, Weaviate, FAISS) into company's AI stack. Developed AI-powered legal chatbots using Python and FastAPI. Optimized production databases reducing high-traffic query latency by up to 40%. Led modernization efforts by migrating legacy services to containerized architectures using Docker."
   },
   {
     id: '4',
-    role: "Full Stack Developer",
-    company: "StartupGrid",
-    period: "2016 - 2018",
-    description: "Built and deployed scalable RESTful APIs using Node.js and Express. Integrated Stripe for payments and implemented real-time notifications with Socket.io, driving user engagement up by 25%."
+    role: "Junior Software Engineer",
+    company: "CarpetDiem",
+    period: "Jan 2023 - Mar 2023",
+    description: "Developed interactive NFT creation platform using JavaScript and Web3 technologies. Built real-time fractal art generation systems. Implemented advanced user management and whitelist system for NFT collectors. Delivered fully integrated website with Web3 wallet connectivity. Built Discord automation and moderation tools using Node.js and OpenAI APIs."
   },
   {
     id: '5',
-    role: "Junior Web Developer",
-    company: "Digital Agency",
-    period: "2015 - 2016",
-    description: "Assisted in the development of responsive WordPress themes and Shopify stores. Optimized image assets and refactored CSS to improve Google Lighthouse performance scores."
+    role: "Junior Backend Developer",
+    company: "Hagia Labs",
+    period: "Jan 2023 - Mar 2023",
+    description: "Developed full-stack web applications using JavaScript, Python and modern frameworks. Built secure cryptocurrency payment integrations using blockchain APIs. Improved system scalability by deploying backend services with AWS (EC2, S3, Lambda) and optimizing cloud resource usage."
   }
 ];
 
 export const PUBLICATIONS = [
   {
-    title: "The Future of React Server Components",
-    publisher: "Frontend Weekly",
-    date: "2023",
+    title: "Fine-Tuning Open Video Generators for Cinematic Scene Synthesis: A Small-Data Pipeline with LoRA and Wan2.1 I2V",
+    publisher: "Research Paper",
+    date: "2025",
     link: "#"
   },
   {
-    title: "Optimizing WebGL for Low-End Devices",
-    publisher: "Smashing Magazine",
-    date: "2022",
+    title: "RAG-Driven Data Quality Governance for Enterprise ERP Systems",
+    publisher: "Research Paper",
+    date: "2024",
     link: "#"
   },
   {
-    title: "Accessibility in Modern Single Page Apps",
-    publisher: "A11y Project",
-    date: "2021",
+    title: "Shotlist Studio: A Modular AI Platform For Cinematic Story Generation And Visualization",
+    publisher: "Research Paper",
+    date: "2024",
     link: "#"
   }
 ];
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com",
+  github: "https://github.com/larusajs",
   twitter: "https://twitter.com",
-  linkedin: "https://linkedin.com",
-  email: "mailto:hello@alexdev.com"
+  linkedin: "https://linkedin.com/in/eneskyarkan",
+  email: "mailto:eneskyarkan@gmail.com"
 };
 
 export const PARTNERS = [

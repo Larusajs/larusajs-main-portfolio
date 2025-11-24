@@ -26,7 +26,7 @@ const Publications: React.FC = () => {
                     <BookOpen size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-neutral-200 group-hover:text-white transition-colors mb-1">
+                    <h3 className="text-l font-semibold text-neutral-200 group-hover:text-white transition-colors mb-1">
                       {pub.title}
                     </h3>
                     <div className="flex items-center gap-2 text-neutral-500 text-sm">
