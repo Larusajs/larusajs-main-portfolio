@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content Container with padding */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full relative z-10 px-6 sm:px-12 max-w-7xl mx-auto pt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full relative z-10 px-6 sm:px-12 max-w-7xl mx-auto">
         
         {/* Left Side: Content */}
         <div className="flex flex-col justify-center order-2 lg:order-1">
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Side: Illustration */}
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div className="order-1 lg:order-2 hidden lg:flex justify-end">
           <Section delay={600} className="w-full flex justify-center">
              <AbstractIllustration />
           </Section>
