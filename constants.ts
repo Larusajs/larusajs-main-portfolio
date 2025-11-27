@@ -107,29 +107,29 @@ export const PUBLICATIONS = [
     title: "Fine-Tuning Open Video Generators for Cinematic Scene Synthesis: A Small-Data Pipeline with LoRA and Wan2.1 I2V",
     publisher: "Research Paper",
     date: "2025",
-    link: "#"
+    link: "https://arxiv.org/abs/2510.27364"
   },
   {
     title: "RAG-Driven Data Quality Governance for Enterprise ERP Systems",
     publisher: "Research Paper",
-    date: "2024",
-    link: "#"
+    date: "2025",
+    link: "https://arxiv.org/abs/2511.16700"
   },
   {
     title: "Shotlist Studio: A Modular AI Platform For Cinematic Story Generation And Visualization",
     publisher: "Research Paper",
-    date: "2024",
-    link: "#"
+    date: "2025",
+    link: "https://www.researchgate.net/publication/397818225_Shotlist_Studio_A_Modular_AI_Platform_For_Cinematic_Story_Generation_And_Visualization"
   }
 ];
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/larusajs",
-  twitter: "https://twitter.com",
+  twitter: "https://x.com/larusajs",
   linkedin: "https://linkedin.com/in/eneskyarkan",
   email: "mailto:eneskyarkan@gmail.com"
 };
 
 export const PARTNERS = [
-  "Starlight Ventures", "Apex Digital", "Nebula Systems", "Quantum Soft", "Echo Labs", "Vertex Solutions"
+  "Hagia Labs", "Bronix Engineering", "Shortimize"
 ];
