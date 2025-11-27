@@ -40,9 +40,9 @@ const Experience: React.FC = () => {
                 <div className="p-8 flex flex-col sm:flex-row gap-6 sm:gap-8">
                   
                   {/* Date Column (Mobile: Top, Desktop: Left) */}
-                  <div className="sm:w-32 flex-shrink-0">
-                    <div className="flex items-center gap-2 text-neutral-500 text-sm font-medium pt-1">
-                      <Calendar size={14} />
+                  <div className="sm:w-40 flex-shrink-0">
+                    <div className="flex items-center gap-2 text-neutral-500 text-sm font-medium pt-1 whitespace-nowrap">
+                      <Calendar size={14} className="flex-shrink-0" />
                       <span>{exp.period}</span>
                     </div>
                   </div>

@@ -1,23 +1,51 @@
 import React, { useState } from 'react';
 import Section from './ui/Section';
 import { SOCIAL_LINKS } from '../constants';
-import { ArrowUpRight, Github, Linkedin, Twitter, Mail, Send } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Send, Check } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://submit-form.com/scAxK8JC6', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        form.reset();
+
+        // Reset after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 3000);
+      } else {
+        console.error('Form submission failed:', response.status, response.statusText);
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-      setFormState({ name: '', email: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -30,12 +58,12 @@ const Contact: React.FC = () => {
             <span className="text-neutral-500">together.</span>
           </h2>
           <p className="text-neutral-400 text-lg mb-12 max-w-md">
-            I'm currently available for freelance projects and open to full-time opportunities. 
+            I'm currently available for freelance projects and open to full-time opportunities.
             If you have an idea you'd like to discuss, share it with me!
           </p>
-          
+
           <div className="space-y-6">
-            <a 
+            <a
               href={SOCIAL_LINKS.email}
               className="flex items-center gap-4 text-xl hover:text-neutral-400 transition-colors group"
             >
@@ -44,7 +72,7 @@ const Contact: React.FC = () => {
               </div>
               enes@srreal.co
             </a>
-            
+
             <div className="flex gap-4 pt-4">
               <a href={SOCIAL_LINKS.github} className="p-3 bg-neutral-900 rounded-full hover:bg-white hover:text-black transition-all">
                 <Github size={20} />
@@ -68,22 +96,20 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
-                  value={formState.name}
-                  onChange={e => setFormState({...formState, name: e.target.value})}
                   className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-neutral-600"
                   placeholder="John Doe"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-neutral-400 mb-2">Email</label>
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
-                  value={formState.email}
-                  onChange={e => setFormState({...formState, email: e.target.value})}
                   className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-neutral-600"
                   placeholder="john@example.com"
                 />
@@ -93,10 +119,9 @@ const Contact: React.FC = () => {
                 <label htmlFor="message" className="block text-sm font-medium text-neutral-400 mb-2">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={4}
-                  value={formState.message}
-                  onChange={e => setFormState({...formState, message: e.target.value})}
                   className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all placeholder-neutral-600 resize-none"
                   placeholder="Tell me about your project..."
                 />
@@ -104,22 +129,40 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting || submitted}
-                className={`w-full py-4 rounded-lg font-bold text-black transition-all duration-300 flex items-center justify-center gap-2
-                  ${submitted ? 'bg-green-500 hover:bg-green-600' : 'bg-white hover:bg-neutral-200'}
-                  ${isSubmitting ? 'opacity-70 cursor-wait' : ''}
+                disabled={isSubmitting || isSubmitted}
+                className={`w-full py-4 rounded-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden
+                  ${isSubmitted
+                    ? 'bg-green-500 text-white'
+                    : 'bg-white text-black hover:bg-neutral-200'
+                  }
+                  ${isSubmitting ? 'cursor-wait' : ''}
+                  ${isSubmitted ? 'scale-[1.02]' : ''}
                 `}
               >
-                {isSubmitting ? (
-                  <>Sending...</>
-                ) : submitted ? (
-                  <>Message Sent!</>
-                ) : (
-                  <>Send Message <Send size={18} /></>
-                )}
+                <span className={`flex items-center gap-2 transition-all duration-300 ${isSubmitting ? 'opacity-70' : 'opacity-100'}`}>
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : isSubmitted ? (
+                    <>
+                      <Check size={18} className="animate-bounce" />
+                      Message Sent!
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={18} />
+                    </>
+                  )}
+                </span>
               </button>
             </form>
-            
+
             {/* Decorative gradient blur behind form */}
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-neutral-800/20 rounded-full blur-[80px] pointer-events-none"></div>
           </div>
@@ -131,7 +174,7 @@ const Contact: React.FC = () => {
           © {new Date().getFullYear()} Larusajs. No copyright infringement intended.
         </div>
         <div className="flex items-center gap-2">
-            Built your dreams with Larusajs!
+          Built your dreams with Larusajs!
         </div>
       </div>
     </section>

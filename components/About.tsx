@@ -22,15 +22,48 @@ const About: React.FC = () => {
 
         <Section delay={200}>
           <h2 className="text-3xl sm:text-4xl font-bold mb-8">Tech Stack</h2>
-          <div className="flex flex-wrap gap-3">
-            {SKILLS.map((skill, index) => (
-              <span 
-                key={index}
-                className="px-4 py-2 border border-neutral-800 rounded-lg text-neutral-300 hover:border-white hover:text-white transition-all duration-300 cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-3">Languages & Core</h3>
+              <div className="flex flex-wrap gap-2">
+                {["Python", "JavaScript", "TypeScript", "Go", "SQL"].map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-md text-sm text-neutral-300 hover:border-white hover:text-white transition-all duration-200"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-3">Frameworks</h3>
+              <div className="flex flex-wrap gap-2">
+                {["React", "Next.js", "FastAPI", "Node.js", "Express.js"].map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-md text-sm text-neutral-300 hover:border-white hover:text-white transition-all duration-200"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-3">Infrastructure & AI</h3>
+              <div className="flex flex-wrap gap-2">
+                {["PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes", "AWS", "Qdrant", "LLMs"].map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-md text-sm text-neutral-300 hover:border-white hover:text-white transition-all duration-200"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </Section>
       </div>
