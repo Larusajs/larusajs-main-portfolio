@@ -4,86 +4,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a modern developer portfolio website built with React 19, TypeScript, and Vite. It features an AI-powered chat widget using Google's Gemini API to answer questions about the developer's experience, projects, and skills.
+Personal portfolio website for Enes Kutay Yarkan (AI & Backend Developer) built with React, TypeScript, Vite, and Tailwind CSS. Features a "hand-drawn" design aesthetic with monochrome colors.
+
+Use 'bun' as a package manager.
 
 ## Development Commands
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
-# Run development server (http://localhost:3000)
-npm run dev
+# Run development server (starts on port 3000)
+bun run dev
 
 # Build for production
-npm run build
+bun run build
 
 # Preview production build
-npm run preview
+bun run preview
 ```
-
-## Environment Setup
-
-The application requires a Gemini API key to enable the AI chat widget:
-- Set `GEMINI_API_KEY` in `.env.local`
-- The key is exposed to the client via `vite.config.ts` as `process.env.API_KEY`
 
 ## Architecture
 
 ### Component Structure
 
-The app follows a single-page layout pattern with these main sections:
-- **App.tsx**: Root component orchestrating all sections in linear order
-- **Header**: Sticky navigation with smooth scroll to sections
-- **Hero**: Landing section with developer name and title
-- **Partners**: Horizontal scrolling partner logos
-- **About**: Bio and skills showcase
-- **Experience**: Timeline of work experience
-- **Projects**: Grid of featured projects with SpotlightCard UI
-- **Publications**: List of articles/publications
-- **Contact**: Contact form/links
-- **ChatWidget**: Fixed floating AI chat interface
+- **App.tsx**: Main application shell with floating centered navbar and section layout
+- **components/**: Feature components (Hero, About, Experience, Projects, Pricing)
+- **components/ui/SketchyComponents.tsx**: Reusable UI primitives (buttons, cards, inputs, badges) with "hand-drawn" styling
+- **types.ts**: Shared TypeScript interfaces (Project, ExperienceItem, Section)
 
-### Data Layer
+### Design System
 
-All portfolio data is centralized in `constants.ts`:
-- `DEV_NAME`, `DEV_TITLE`, `BIO`: Personal information
-- `SKILLS`: Array of technical skills
-- `PROJECTS`: Array of `Project` objects (defined in `types.ts`)
-- `EXPERIENCE`: Array of `Experience` objects (defined in `types.ts`)
-- `PUBLICATIONS`, `SOCIAL_LINKS`, `PARTNERS`: Supporting data
-- `SYSTEM_INSTRUCTION`: Defines the AI assistant's behavior and knowledge scope
+The site uses a monochrome "hand-drawn" design system defined in index.html:
+- Font: "Patrick Hand" (Google Fonts)
+- Colors: `paper` (#fdfbf7), `ink` (#1a1a1a), `highlight` (#e5e5e5), `accent` (#9ca3af)
+- Shadows: `shadow-sketch` (4px offset), `shadow-sketch-hover` (2px offset)
+- Background: Dotted paper texture via radial-gradient
 
-### AI Chat Integration
+All interactive elements use Framer Motion for animations (whileHover, whileTap).
 
-The chat widget architecture:
-1. **ChatWidget.tsx**: UI component managing chat state, streaming display, and user interactions
-2. **services/geminiService.ts**: Handles Gemini API initialization and streaming responses
-3. **constants.ts**: Provides system instructions that scope the AI to portfolio data only
+### Path Aliases
 
-The chat session is stateful (persists across messages) and uses streaming responses for real-time display.
-
-### Styling Approach
-
-- Uses Tailwind CSS loaded from CDN in `index.html`
-- Custom Tailwind config extends default theme with scroll animations
-- Black and white minimalist aesthetic throughout
-- Custom scrollbar styles defined in `index.html`
-- Responsive design with mobile-first approach
-
-### Module System
-
-The app uses ESM with import maps defined in `index.html`:
-- React 19 and dependencies are loaded from `aistudiocdn.com` CDN
-- Vite bundles TypeScript source files
-- Path alias `@/*` maps to project root (configured in both `vite.config.ts` and `tsconfig.json`)
+TypeScript and Vite are configured with `@/*` alias pointing to the root directory. Use `@/components/*` for imports.
 
 ## Key Implementation Details
 
-**Gemini Integration**: The service initializes a chat session with `gemini-2.5-flash` model. The system instruction in constants.ts constrains the AI to only answer questions based on the portfolio data.
+### Component Patterns
 
-**State Management**: Uses React hooks (useState, useEffect, useRef) without external state libraries. Chat history is stored in component state.
+- All components are React Functional Components with TypeScript
+- Use `motion` components from framer-motion for animations
+- Shared styling through SketchyComponents UI library
+- Icons from `lucide-react`
 
-**Streaming UI**: The chat displays responses incrementally as they arrive from the Gemini API, with a pulsing cursor indicating active streaming.
+### State Management
 
-**Type Safety**: TypeScript interfaces in `types.ts` define the shape of `Project`, `Experience`, and `ChatMessage` objects used throughout the app.
+No global state management library. Uses React hooks (useState, useRef, useEffect) for local component state.
+
+## Styling Conventions
+
+- Tailwind CSS via CDN (configured in index.html)
+- Custom theme extends default Tailwind config
+- Use `font-hand` for Patrick Hand font
+- Use `shadow-sketch` for consistent border shadows
+- Use `bg-paper` for background, `text-ink` for text
+- Border pattern: `border-2 border-ink`

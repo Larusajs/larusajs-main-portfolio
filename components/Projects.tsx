@@ -1,75 +1,99 @@
 import React from 'react';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
-import Section from './ui/Section';
-import { PROJECTS } from '../constants';
+import { motion } from 'framer-motion';
+import { SketchyCard, SketchyButton } from './ui/SketchyComponents';
+import { Project } from '../types';
+import { ExternalLink, Github, TrendingUp } from 'lucide-react';
 
-const Projects: React.FC = () => {
+const projects: Project[] = [
+  {
+    id: '1',
+    title: 'Shotlist Studio',
+    description: 'A Modular AI Platform for Cinematic Story Generation and Visualization. Enables creative teams to visualize scenes using fine-tuned video generators.',
+    techStack: ['Python', 'AI Video', 'LoRA', 'Cinematic Synthesis'],
+    link: '#',
+    imageUrl: 'https://picsum.photos/600/400?random=1',
+    metrics: 'Research Publication'
+  },
+  {
+    id: '2',
+    title: 'Enterprise RAG System',
+    description: 'HR Data Quality Governance system for a major holding company. Uses RAG to clean data and provide instant knowledge access via chat.',
+    techStack: ['FastAPI', 'PostgreSQL', 'RAG', 'Vector DB'],
+    link: '#',
+    imageUrl: 'https://picsum.photos/600/400?random=2',
+    metrics: 'Unified Operational Data'
+  },
+  {
+    id: '3',
+    title: 'CarpetDiem NFT',
+    description: 'Interactive NFT creation platform allowing users to generate and mint fractal art on-chain. Includes Discord automation for drops.',
+    techStack: ['Web3', 'Node.js', 'Canvas API', 'OpenAI'],
+    link: '#',
+    imageUrl: 'https://picsum.photos/600/400?random=3',
+    metrics: 'Real-time Generation'
+  }
+];
+
+export const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-32 px-6 sm:px-12 max-w-7xl mx-auto border-t border-neutral-900">
-      <Section className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-4">Selected Work</h2>
-          <p className="text-neutral-400 text-lg">Featured projects and experiments.</p>
-        </div>
-        <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors group w-fit">
-          View GitHub <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </a>
-      </Section>
+    <section id="projects" className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <h2 className="font-hand text-5xl font-bold mb-4 relative inline-block">
+            Featured Projects
+            <span className="absolute -top-6 -right-8 text-4xl grayscale">🚀</span>
+          </h2>
+          <p className="font-hand text-xl text-gray-600">From Research Papers to Production SaaS.</p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {PROJECTS.map((project, index) => (
-          <Section key={project.id} delay={index * 150} className="group h-full">
-            <div className="h-full flex flex-col bg-neutral-950/50 rounded-2xl overflow-hidden border border-neutral-900 hover:border-neutral-700 transition-all duration-500">
-              
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden bg-neutral-900">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 to-transparent opacity-60"></div>
-                
-                {/* Floating Links */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    {project.github && (
-                        <a href={project.github} className="p-2 bg-black/50 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-colors">
-                            <Github size={18} />
-                        </a>
-                    )}
-                    {project.link && (
-                        <a href={project.link} className="p-2 bg-black/50 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-colors">
-                            <ExternalLink size={18} />
-                        </a>
-                    )}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-grow relative">
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-neutral-200 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-neutral-400 leading-relaxed text-sm">
-                    {project.description}
-                  </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <SketchyCard className="h-full flex flex-col transform hover:-rotate-1 transition-transform duration-300">
+                <div className="border-2 border-ink rounded-sm overflow-hidden mb-4 relative group">
+                  <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover grayscale opacity-90 group-hover:opacity-100 transition-all duration-500" />
+                  {project.metrics && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-white/90 border-t-2 border-ink p-2 flex items-center justify-center gap-2 font-bold text-sm">
+                        <TrendingUp size={16} /> {project.metrics}
+                    </div>
+                  )}
                 </div>
                 
-                <div className="mt-auto pt-4 flex flex-wrap gap-2">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="text-xs font-medium text-neutral-400 bg-neutral-900/80 px-2.5 py-1 rounded-md border border-neutral-800">
-                      {tag}
+                <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
+                <p className="text-lg text-gray-700 mb-6 flex-grow leading-snug">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.techStack.map(tech => (
+                    <span key={tech} className="bg-gray-100 border border-ink px-2 py-1 text-sm font-bold rounded-sm text-gray-600">
+                      #{tech}
                     </span>
                   ))}
                 </div>
-              </div>
-            </div>
-          </Section>
-        ))}
+
+                <div className="flex gap-4 mt-auto">
+                  <SketchyButton className="flex-1 flex items-center justify-center gap-2 text-base py-1">
+                    <ExternalLink size={18} /> Details
+                  </SketchyButton>
+                  {/* <a href="#" className="p-2 border-2 border-ink rounded-sm hover:bg-highlight transition-colors flex items-center justify-center">
+                    <Github size={24} />
+                  </a> */}
+                </div>
+              </SketchyCard>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
-
-export default Projects;
