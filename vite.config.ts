@@ -14,8 +14,8 @@ export default defineConfig({
     }
   },
   build: {
-    // Enable minification for better performance
-    minify: 'terser',
+    // Enable minification with esbuild (faster and built-in)
+    minify: 'esbuild',
     // Generate source maps for production debugging
     sourcemap: false,
     // Optimize chunk size
