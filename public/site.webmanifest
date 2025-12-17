@@ -1,0 +1,23 @@
+{
+  "name": "Enes Kutay Yarkan - AI & Backend Developer",
+  "short_name": "Larusajs",
+  "description": "AI & Backend Developer specializing in Python, Go, TypeScript, and AI automation systems.",
+  "icons": [
+    {
+      "src": "/icon.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#fdfbf7",
+  "background_color": "#fdfbf7",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

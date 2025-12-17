@@ -12,5 +12,22 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, '.'),
     }
-  }
+  },
+  build: {
+    // Enable minification for better performance
+    minify: 'terser',
+    // Generate source maps for production debugging
+    sourcemap: false,
+    // Optimize chunk size
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'motion': ['framer-motion'],
+        }
+      }
+    }
+  },
+  // Configure public directory
+  publicDir: 'public',
 });
