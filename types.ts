@@ -1,26 +1,33 @@
+
+import React from 'react';
+
 export interface Project {
   id: string;
-  title: string;
+  name: string;
   description: string;
-  techStack: string[];
-  link: string;
-  imageUrl: string;
-  metrics?: string;
+  tags: string[];
+  icon: string;
+  link?: string;
 }
 
-export interface ExperienceItem {
+export interface Experience {
   id: string;
-  role: string;
   company: string;
+  role: string;
   period: string;
-  description: string[];
-  techUsed: string[];
+  description: string;
+  location: string;
+  icon: string;
 }
 
-export enum Section {
-  HERO = 'hero',
-  ABOUT = 'about',
-  EXPERIENCE = 'experience',
-  PROJECTS = 'projects',
-  CONTACT = 'contact'
+export interface SocialLink {
+  platform: string;
+  url: string;
+  icon: React.ReactNode;
+}
+
+export interface Publication {
+  id: string;
+  title: string;
+  link: string;
 }
