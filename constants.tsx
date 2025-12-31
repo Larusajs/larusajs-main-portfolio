@@ -99,3 +99,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { platform: "LinkedIn", url: "#", icon: <Linkedin size={18} /> },
   { platform: "X", url: "#", icon: <Twitter size={18} /> },
 ];
+
+export const AVAILABILITY = {
+  slotsAvailable: 2,
+  slotsTotal: 5,
+};
