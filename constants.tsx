@@ -39,6 +39,15 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "e0",
+    company: "Srreal Studio",
+    role: "Co-Founder",
+    location: "Wyoming, US",
+    period: "Mar 2025 — Present",
+    description: "Building web, mobile, AI, and desktop applications with a focus on rapid delivery. Guarantee 2-week maximum turnaround while maintaining high quality standards and streamlined development processes.",
+    icon: "Layers"
+  },
+  {
     id: "e1",
     company: "Hagia Labs",
     role: "Software Developer",
