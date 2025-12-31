@@ -89,24 +89,24 @@ export const PUBLICATIONS: Publication[] = [
   {
     id: "p1",
     title: "Fine-Tuning Open Video Generators for Cinematic Scene Synthesis",
-    link: "#"
+    link: "https://arxiv.org/abs/2510.27364"
   },
   {
     id: "p2",
     title: "RAG-Driven Data Quality Governance for Enterprise ERP Systems",
-    link: "#"
+    link: "https://arxiv.org/abs/2511.16700"
   },
   {
     id: "p3",
     title: "Shotlist Studio: A Modular AI Platform For Cinematic Story Generation",
-    link: "#"
+    link: "https://www.researchgate.net/publication/397818225_Shotlist_Studio_A_Modular_AI_Platform_For_Cinematic_Story_Generation_And_Visualization?_sg%5B0%5D=C8CFVv6VKdY0yL5scCy78F5WJRT93bCMT_B-vKGp5kBvSrmGAkUeqjv_HXMlS9dMBsp-LsrnZu40msbcxcsisw5JybucVBhvJoy3bcf4.tk4FTVBE9ggrO-vjQ0mFEyeHWyqJyzzdB2CKe4cPlwrUOCj-CaRsly43U-59LJg7u6iQg-udgxAQJBzHRatclQ&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6ImxvZ2luIiwicGFnZSI6InByb2ZpbGUiLCJwcmV2aW91c1BhZ2UiOiJwcm9maWxlIiwicG9zaXRpb24iOiJwYWdlQ29udGVudCJ9fQ"
   }
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { platform: "GitHub", url: "#", icon: <Github size={18} /> },
-  { platform: "LinkedIn", url: "#", icon: <Linkedin size={18} /> },
-  { platform: "X", url: "#", icon: <Twitter size={18} /> },
+  { platform: "GitHub", url: "https://github.com/larusajs", icon: <Github size={18} /> },
+  { platform: "LinkedIn", url: "https://www.linkedin.com/in/larusajs/", icon: <Linkedin size={18} /> },
+  { platform: "X", url: "https://x.com/larusajs", icon: <Twitter size={18} /> },
 ];
 
 export const AVAILABILITY = {
