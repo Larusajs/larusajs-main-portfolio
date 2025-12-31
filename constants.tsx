@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   role: "AI & Backend Developer",
   location: "Singapore",
   currentCompany: "Hagia Labs",
-  email: "eneskyarkan@gmail.com",
+  email: "enes@srreal.co",
   availability: true,
   summary: "Experienced in building automation-focused systems using Python, JavaScript, Go. Founder of multiple AI-driven products with a track record of delivering efficient, scalable solutions.",
 };

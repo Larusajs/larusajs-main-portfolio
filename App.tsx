@@ -33,10 +33,15 @@ const App: React.FC = () => {
         <div className="text-white font-black tracking-tighter text-xl">
           Larusajs
         </div>
-        <button className="flex items-center gap-2 bg-white text-black px-5 py-2 rounded-xl text-xs font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-95 uppercase tracking-wider">
+        <a
+          href="https://cal.com/enes-kutay-yarkan-jf8xet/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-white text-black px-5 py-2 rounded-xl text-xs font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-95 uppercase tracking-wider"
+        >
           <Plus size={14} strokeWidth={3} />
           Hire Me
-        </button>
+        </a>
       </header>
 
       {/* Main Content */}
@@ -224,10 +229,15 @@ const App: React.FC = () => {
               </p>
 
               {/* CTA Button */}
-              <button className="bg-white text-black px-8 py-4 rounded-2xl text-sm font-bold hover:bg-gray-200 active:scale-95 transition-all shadow-lg mb-8 inline-flex items-center gap-2">
+              <a
+                href="https://cal.com/enes-kutay-yarkan-jf8xet/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black px-8 py-4 rounded-2xl text-sm font-bold hover:bg-gray-200 active:scale-95 transition-all shadow-lg mb-8 inline-flex items-center gap-2"
+              >
                 <Calendar size={16} strokeWidth={2.5} />
                 Book a Call
-              </button>
+              </a>
 
               {/* Divider */}
               <div className="border-t border-[#1a1a1a] my-8"></div>
